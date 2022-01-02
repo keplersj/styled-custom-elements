@@ -1,0 +1,68 @@
+{
+  "name": "styled-custom-elements",
+  "version": "0.1.0",
+  "description": "Styled API for Custom Elements",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keplersj/styled-custom-elements.git"
+  },
+  "keywords": [
+    "css-in-js",
+    "css",
+    "styled",
+    "webcomponents",
+    "custom-elements"
+  ],
+  "author": "Kepler Sticka-Jones <kepler@stickajones.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keplersj/styled-custom-elements/issues"
+  },
+  "homepage": "https://github.com/keplersj/styled-custom-elements#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/html": "^6.4.9",
+    "@types/jest": "^27.4.0",
+    "babel-loader": "^8.2.3",
+    "eslint": "^7.32.0",
+    "eslint-config-starstuff": "^1.5.8",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "collectCoverage": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "preset": "ts-jest/presets/default-esm",
+    "globals": {
+      "ts-jest": {
+        "useESM": true
+      }
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    }
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.7.1",
+    "@emotion/serialize": "^1.0.2",
+    "@emotion/utils": "^1.0.0"
+  }
+}
