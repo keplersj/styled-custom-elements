@@ -1,12 +1,12 @@
 {
   "name": "styled-custom-elements",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Styled API for Custom Elements",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "prepublish": "npm run build",
+    "prepack": "npm run build",
     "build": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
