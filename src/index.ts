@@ -24,7 +24,9 @@ function getElementInterface(elementName: string): typeof HTMLElement {
     return (elements as { [name: string]: typeof HTMLElement })[elementName];
   }
 
-  console.warn(`Element unknown to styled-custom-elements: ${elementName}`);
+  console.warn(
+    `Element unknown to styled-custom-elements: <${elementName} /> Please report this to https://github.com/keplersj/styled-custom-elements/issues`
+  );
 
   return HTMLElement;
 }
