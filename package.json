@@ -1,6 +1,6 @@
 {
   "name": "styled-custom-elements",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Styled API for Custom Elements",
   "type": "module",
   "main": "./dist/index.cjs",
