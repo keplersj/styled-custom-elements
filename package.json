@@ -4,10 +4,11 @@
   "description": "Styled API for Custom Elements",
   "type": "module",
   "main": "./dist/index.cjs",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.modern.js",
   "unpkg": "./dist/index.umd.js",
   "source": "src/index.ts",
   "exports": {
+    "import": "./dist/index.modern.js",
     "require": "./dist/index.cjs",
     "default": "./dist/index.modern.js"
   },
