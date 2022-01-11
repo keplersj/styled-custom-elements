@@ -12,6 +12,10 @@
     "require": "./dist/index.cjs",
     "default": "./dist/index.modern.js"
   },
+  "browserslist": [
+    "last 2 years",
+    "node >= 12"
+  ],
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "prepack": "npm run build",
