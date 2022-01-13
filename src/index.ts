@@ -1,5 +1,5 @@
 import { elements } from "./elements";
-import { serializeStyles } from "@emotion/serialize";
+import { Interpolation, serializeStyles } from "@emotion/serialize";
 import emotionCache from "@emotion/cache";
 import { insertStyles } from "@emotion/utils";
 
@@ -31,13 +31,14 @@ function getElementInterface(elementName: string): typeof HTMLElement {
   return HTMLElement;
 }
 
-type StyledCustomElement<E extends typeof HTMLElement = typeof HTMLElement> =
-  | ((styleObject: object) => E)
-  | ((substrings: TemplateStringsArray, ...expressions: any) => E);
+type StyledCustomElement<E extends typeof HTMLElement = typeof HTMLElement> = (
+  ...styles: Array<TemplateStringsArray | Interpolation<unknown>>
+) => E;
 
 const defaultOptions = {
   extend: true,
   shadow: true,
+  target: undefined as string | undefined,
 };
 
 type Options = Partial<typeof defaultOptions>;
@@ -53,7 +54,7 @@ function styledElementFactory(
     ElementInterface = element;
   }
 
-  return (...styles: Array<TemplateStringsArray>) => {
+  return (...styles: Array<TemplateStringsArray | Interpolation<unknown>>) => {
     return class StyledCustomElement extends ElementInterface {
       constructor() {
         super();

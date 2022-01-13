@@ -214,4 +214,93 @@ describe("Styled Custom Elements", () => {
       `);
     });
   });
+
+  describe("CSS object syntax", () => {
+    const element = styled.div({
+      color: "red",
+    });
+
+    customElements.define("custom-object-element", element, { extends: "div" });
+
+    it("returns a valid custom element", () => {
+      expect(element).toMatchInlineSnapshot(`[Function]`);
+
+      const elementInstance = new element();
+
+      expect(elementInstance).toBeInstanceOf(HTMLElement);
+      expect(elementInstance).toMatchInlineSnapshot(`StyledCustomElement {}`);
+      expect(elementInstance.className).toMatchInlineSnapshot(`"css-tokvmb"`);
+      expect(elementInstance.style).toMatchInlineSnapshot(`
+        CSSStyleDeclaration {
+          "_importants": Object {},
+          "_length": 0,
+          "_onChange": [Function],
+          "_values": Object {},
+        }
+      `);
+    });
+  });
+
+  describe("plain string style, optimized by @emotion/babel", () => {
+    // Extracted from a build of https://github.com/keplersj/website
+    const element = styled("div", { target: "e1k87xmt4" })({
+      name: "flzhjp",
+      styles: "display:flex;overflow:scroll",
+    });
+
+    customElements.define("custom-optimized-plain-element", element, {
+      extends: "div",
+    });
+
+    it("returns a valid custom element", () => {
+      expect(element).toMatchInlineSnapshot(`[Function]`);
+
+      const elementInstance = new element();
+
+      expect(elementInstance).toBeInstanceOf(HTMLElement);
+      expect(elementInstance).toMatchInlineSnapshot(`StyledCustomElement {}`);
+      expect(elementInstance.className).toMatchInlineSnapshot(`"css-flzhjp"`);
+      expect(elementInstance.style).toMatchInlineSnapshot(`
+        CSSStyleDeclaration {
+          "_importants": Object {},
+          "_length": 0,
+          "_onChange": [Function],
+          "_values": Object {},
+        }
+      `);
+    });
+  });
+
+  describe("string style, with interpolation, optimized by @emotion/babel", () => {
+    // Extracted from a build of https://github.com/keplersj/website
+    const element = styled("kepler-image", { target: "e1k87xmt1" })(
+      "picture{display:block;min-width:20em;max-width:25vw;position:relative;padding-top:",
+      (3 / 4) * 100,
+      "%;}img{border-top-left-radius:10px;border-top-right-radius:10px;position:absolute;top:0;object-fit:cover;height:100%;width:100%;}"
+    );
+
+    customElements.define("custom-optimized-interpolted-element", element);
+
+    it("returns a valid custom element", () => {
+      expect(element).toMatchInlineSnapshot(`[Function]`);
+
+      const elementInstance = new element();
+
+      expect(elementInstance).toBeInstanceOf(HTMLElement);
+      expect(elementInstance).toMatchInlineSnapshot(`
+        <custom-optimized-interpolted-element
+          class="css-1xyaj47"
+        />
+      `);
+      expect(elementInstance.className).toMatchInlineSnapshot(`"css-1xyaj47"`);
+      expect(elementInstance.style).toMatchInlineSnapshot(`
+        CSSStyleDeclaration {
+          "_importants": Object {},
+          "_length": 0,
+          "_onChange": [Function],
+          "_values": Object {},
+        }
+      `);
+    });
+  });
 });
