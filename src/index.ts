@@ -1,4 +1,7 @@
-import { interfaces, InterfaceMap } from "html-tag-interfaces";
+import {
+  interfaces,
+  getInterface as getElementInterface,
+} from "html-tag-interfaces";
 import { Interpolation, serializeStyles } from "@emotion/serialize";
 import emotionCache from "@emotion/cache";
 import { insertStyles } from "@emotion/utils";
@@ -10,26 +13,6 @@ const createCache: typeof emotionCache =
     : (emotionCache as any).default;
 
 const cache = createCache({ key: "css" });
-
-function getElementInterface(elementName: string): typeof HTMLElement {
-  if (elementName.includes("-")) {
-    const registered = customElements.get(elementName);
-
-    if (registered) {
-      return registered;
-    }
-  }
-
-  if ((interfaces as InterfaceMap)[elementName]) {
-    return (interfaces as InterfaceMap)[elementName];
-  }
-
-  console.warn(
-    `Element unknown to styled-custom-elements: <${elementName} /> Please report this to https://github.com/keplersj/styled-custom-elements/issues`
-  );
-
-  return HTMLElement;
-}
 
 type StyledCustomElement<E extends typeof HTMLElement = typeof HTMLElement> = (
   // eslint-disable-next-line no-unused-vars
@@ -49,8 +32,12 @@ function styledElementFactory(
   // eslint-disable-next-line no-unused-vars
   options?: Options
 ): StyledCustomElement {
-  const ElementInterface =
+  let ElementInterface =
     typeof element === "string" ? getElementInterface(element) : element;
+  ElementInterface =
+    ElementInterface.name === "HTMLUnknownElement"
+      ? HTMLElement
+      : ElementInterface;
 
   return (...styles: Array<TemplateStringsArray | Interpolation<unknown>>) => {
     return class StyledCustomElement extends ElementInterface {
