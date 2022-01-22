@@ -2,6 +2,11 @@
 
 **_UNSTABLE AND EXPERIMENTAL UNTIL FURTHER NOTICE_**
 
+[![npm](https://img.shields.io/npm/v/styled-custom-elements)](https://www.npmjs.com/package/styled-custom-elements)
+[![npm](https://img.shields.io/npm/dw/styled-custom-elements)](https://www.npmjs.com/package/styled-custom-elements)
+[![Codecov](https://img.shields.io/codecov/c/github/keplersj/styled-custom-elements)](https://app.codecov.io/gh/keplersj/styled-custom-elements)
+[![Bundle Size](https://img.shields.io/bundlephobia/min/styled-custom-elements)](https://bundlephobia.com/package/styled-custom-elements)
+
 Styled (comparable to [@emotion/styled](https://emotion.sh/docs/@emotion/styled)) API for custom elements, built on top of [Emotion](https://emotion.sh/).
 
 ## Installation
