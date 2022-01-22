@@ -2,7 +2,7 @@ import styled from "./index.js";
 
 describe("Styled Custom Elements", () => {
   afterEach(() => {
-    document.getElementsByTagName("html")[0].innerHTML = "";
+    document.querySelectorAll("html")[0].innerHTML = "";
   });
 
   describe("string element, template string style", () => {
@@ -33,7 +33,7 @@ describe("Styled Custom Elements", () => {
 
     it("attaches to the document and styles", () => {
       const element = document.createElement("div", { is: "custom-div-param" });
-      document.body.appendChild(element);
+      document.body.append(element);
       expect(document.documentElement).toMatchInlineSnapshot(`
         <html>
           <head />
@@ -73,7 +73,7 @@ describe("Styled Custom Elements", () => {
 
     it("attaches to the document and styles", () => {
       const element = document.createElement("div", { is: "custom-div-prop" });
-      document.body.appendChild(element);
+      document.body.append(element);
       expect(document.documentElement).toMatchInlineSnapshot(`
         <html>
           <head />
@@ -121,15 +121,15 @@ describe("Styled Custom Elements", () => {
       const element = document.createElement("div", {
         is: "custom-div-element",
       });
-      document.body.appendChild(element);
+      document.body.append(element);
       expect(document.documentElement).toMatchInlineSnapshot(`
-          <html>
-            <head />
-            <body>
-              StyledCustomElement {}
-            </body>
-          </html>
-        `);
+        <html>
+          <head />
+          <body>
+            StyledCustomElement {}
+          </body>
+        </html>
+      `);
     });
   });
 
@@ -173,15 +173,15 @@ describe("Styled Custom Elements", () => {
       const element = document.createElement("div", {
         is: "custom-div-ext",
       });
-      document.body.appendChild(element);
+      document.body.append(element);
       expect(document.documentElement).toMatchInlineSnapshot(`
-            <html>
-              <head />
-              <body>
-                StyledCustomElement {}
-              </body>
-            </html>
-          `);
+        <html>
+          <head />
+          <body>
+            StyledCustomElement {}
+          </body>
+        </html>
+      `);
     });
   });
 

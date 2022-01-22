@@ -32,6 +32,7 @@ function getElementInterface(elementName: string): typeof HTMLElement {
 }
 
 type StyledCustomElement<E extends typeof HTMLElement = typeof HTMLElement> = (
+  // eslint-disable-next-line no-unused-vars
   ...styles: Array<TemplateStringsArray | Interpolation<unknown>>
 ) => E;
 
@@ -45,20 +46,17 @@ type Options = Partial<typeof defaultOptions>;
 
 function styledElementFactory(
   element: string | typeof HTMLElement,
+  // eslint-disable-next-line no-unused-vars
   options?: Options
 ): StyledCustomElement {
-  let ElementInterface = HTMLElement;
-  if (typeof element === "string") {
-    ElementInterface = getElementInterface(element);
-  } else {
-    ElementInterface = element;
-  }
+  const ElementInterface =
+    typeof element === "string" ? getElementInterface(element) : element;
 
   return (...styles: Array<TemplateStringsArray | Interpolation<unknown>>) => {
     return class StyledCustomElement extends ElementInterface {
       constructor() {
         super();
-        const serialized = serializeStyles(styles, cache.registered, undefined);
+        const serialized = serializeStyles(styles, cache.registered);
         insertStyles(cache, serialized, false);
         const className = `${cache.key}-${serialized.name}`;
         this.className = className;
@@ -68,7 +66,7 @@ function styledElementFactory(
 }
 
 const styledProxy = new Proxy(styledElementFactory, {
-  get: (target, property, receiver) => {
+  get: (target, property) => {
     return target(String(property));
   },
 });
