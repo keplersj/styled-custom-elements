@@ -1,4 +1,4 @@
-import { elements } from "./elements";
+import { interfaces, InterfaceMap } from "html-tag-interfaces";
 import { Interpolation, serializeStyles } from "@emotion/serialize";
 import emotionCache from "@emotion/cache";
 import { insertStyles } from "@emotion/utils";
@@ -20,8 +20,8 @@ function getElementInterface(elementName: string): typeof HTMLElement {
     }
   }
 
-  if ((elements as { [name: string]: typeof HTMLElement })[elementName]) {
-    return (elements as { [name: string]: typeof HTMLElement })[elementName];
+  if ((interfaces as InterfaceMap)[elementName]) {
+    return (interfaces as InterfaceMap)[elementName];
   }
 
   console.warn(
@@ -74,8 +74,8 @@ const styledProxy = new Proxy(styledElementFactory, {
 });
 
 type Styled = typeof styledElementFactory & {
-  [element in keyof typeof elements]: StyledCustomElement<
-    typeof elements[element]
+  [element in keyof typeof interfaces]: StyledCustomElement<
+    typeof interfaces[element]
   >;
 };
 
