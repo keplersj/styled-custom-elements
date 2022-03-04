@@ -1,7 +1,9 @@
+import "@ungap/custom-elements";
 import styled from "./index";
 
 const StyledButton = styled.button`
   color: turquoise;
+  font-size: 24px;
 `;
 
 customElements.define("styled-button", StyledButton, { extends: "button" });

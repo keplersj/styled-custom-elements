@@ -22,6 +22,8 @@ $ npm install styled-custom-elements
 
 At the moment this package defaults to creating Custom Elements that extend their base elements (see MDN for [Extended Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#customized_built-in_elements)). In the future this will not be the case, with the package offering you the ability to opt-out of automatic extending and creating a wrapper around the base element in a Shadow DOM.
 
+In order to use the package in this mode while targeting [WebKit](https://webkit.org/) browsers ([Safari](https://www.apple.com/safari/) [Gnome Web/Epiphany](https://apps.gnome.org/en/app/org.gnome.Epiphany/), [KDE Falkon](https://www.falkon.org/)) the Extended Custom Elements API must be polyfilled, [due to the WebKit team not implementing this](https://bugs.webkit.org/show_bug.cgi?id=182671) [part of the spec](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example). [`@ungap/custom-elements`](https://github.com/ungap/custom-elements#readme) is the recommended polyfill for this.
+
 To create an extended element, use the following JavaScript:
 
 ```js
