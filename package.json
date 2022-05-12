@@ -59,7 +59,7 @@
     "@storybook/addon-essentials": "6.4.22",
     "@storybook/addon-links": "6.4.22",
     "@storybook/html": "6.4.22",
-    "@types/jest": "27.5.0",
+    "@types/jest": "27.5.1",
     "@ungap/custom-elements": "1.0.2",
     "babel-loader": "8.2.5",
     "eslint": "8.15.0",
