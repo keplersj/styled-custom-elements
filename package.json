@@ -60,7 +60,7 @@
     "@storybook/addon-links": "6.5.12",
     "@storybook/html": "6.5.12",
     "@types/jest": "27.5.2",
-    "@ungap/custom-elements": "1.1.0",
+    "@ungap/custom-elements": "1.1.1",
     "babel-loader": "8.2.5",
     "eslint": "8.25.0",
     "eslint-config-starstuff": "1.5.14",
