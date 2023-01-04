@@ -61,7 +61,7 @@
     "@storybook/html": "6.5.15",
     "@types/jest": "27.5.2",
     "@ungap/custom-elements": "1.1.1",
-    "babel-loader": "9.1.0",
+    "babel-loader": "9.1.2",
     "eslint": "8.31.0",
     "eslint-config-starstuff": "1.5.15",
     "husky": "8.0.3",
