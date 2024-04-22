@@ -69,7 +69,7 @@
     "microbundle": "0.15.1",
     "prettier": "2.8.1",
     "rimraf": "5.0.5",
-    "serve": "14.2.1",
+    "serve": "14.2.2",
     "storybook-builder-vite": "0.1.23",
     "ts-jest": "27.1.5",
     "typescript": "4.9.5",
