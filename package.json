@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/keplersj/styled-custom-elements#readme",
   "devDependencies": {
-    "@babel/core": "7.24.5",
+    "@babel/core": "7.24.6",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@storybook/addon-actions": "6.5.16",
