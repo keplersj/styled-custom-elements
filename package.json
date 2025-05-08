@@ -53,8 +53,8 @@
   "homepage": "https://github.com/keplersj/styled-custom-elements#readme",
   "devDependencies": {
     "@babel/core": "7.27.1",
-    "@commitlint/cli": "19.8.0",
-    "@commitlint/config-conventional": "19.8.0",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
     "@storybook/addon-actions": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-links": "6.5.16",
